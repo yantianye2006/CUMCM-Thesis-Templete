@@ -1,0 +1,173 @@
+\documentclass[12pt,a4paper]{ctexrep}
+
+% --- 宏包 ---
+\usepackage{geometry,setspace,titlesec,fancyhdr}
+\usepackage{amsmath,booktabs,tabularx,graphicx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\numberwithin{equation}{section}
+\usetikzlibrary{shapes.geometric, arrows, positioning, calc}
+
+% --- 页面边距与布局 ---
+\geometry{top=2.5cm,bottom=2.54cm,left=2.5cm,right=2.5cm}
+
+% --- 字体设置 ---
+\setCJKmainfont{SimSun}
+\setCJKsansfont{SimHei}
+\setmainfont{Times New Roman}
+\newcommand{\song}{\songti}
+\newcommand{\hei}{\heiti}
+
+% --- 段落与页眉页脚 ---
+\setlength{\parskip}{0pt}
+% --- 页眉页脚设置 ---
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\song\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+
+% --- 重新定制标题格式 ---
+\titleformat{\section}[block]{\hei\zihao{-3}}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{8pt}{8pt}
+
+\titleformat{\subsection}[block]{\hei\zihao{4}}{\thesubsection}{1em}{}
+\titlespacing{\subsection}{0pt}{5pt}{5pt}
+
+\titleformat{\subsubsection}[block]{\hei\zihao{4}}{\thesubsubsection}{1em}{}
+\titlespacing{\subsubsection}{0pt}{5pt}{5pt}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\setcounter{secnumdepth}{3}
+
+% --- 引用符号定制（上标、带中括号） ---
+\newcommand{\citeup}[1]{\textsuperscript{[#1]}}
+
+
+\begin{document}
+	
+	% ===================================================
+	% 前置部分：中文摘要 ===================================================
+	\newpage
+	\pagenumbering{arabic} % 设置阿拉伯数字页码
+	
+	% --- 1. 中文摘要 ---
+	\begin{center}
+		{\hei\zihao{2}标题}
+	\end{center}
+	\noindent{\hei\zihao{-3}摘要}\par
+	\vspace{11pt}
+	
+	\begin{spacing}{1.0}
+		{\song\zihao{4} \setlength{\parindent}{2em}
+			中文摘要
+		}
+	\end{spacing}
+	
+	\vspace{1em}
+	\noindent{\hei\zihao{4}关键词：1；2；3；4}
+	
+	
+	%===================================================
+	% 正文部分
+	%===================================================
+	\begin{spacing}{1.10}
+		{\song\zihao{-4}
+		%引言部分
+			\section{引言}
+			%简要概括这个研究目标的重要性
+			
+			%问题重述：
+			%简要概括问题的具体是什么，转化数学建模目标
+			
+			\section{问题分析}
+			%承接上文的建模目标，分析这种情况不应该只考虑那种模型，还应引入什么
+			%在此处插入主流程图
+			
+			\section{问题假设}
+			%问题的重要假设，支持后续建模
+			
+			\section{符号即标准说明}
+			%文章中的重要符号
+			
+		%建模准备工作
+			\section{数据预处理}
+			\subsection{数据总览}
+			%简要说一下数据集都有什么项目
+			\subsection{数据理解与异常值处理}
+			%简要说一下一些不太好理解的数据应该怎么定义，如何参与建模
+			%在此基础上，对异常值应该怎么处理
+			\subsection{数据统一与变换}
+			%将数据统一或者变换，便于后续建模
+			\subsection{训练集与测试集设计}
+			%讲解一下如何防止数据泄露，防止污染
+			\subsection{建模准备总结}
+			%总结数据预处理，衔接下文正式建模
+			%在此插入建模准备流程图
+		
+		%正式建模	
+			\section{问题1建模}
+			\subsection{预实验与文献综述}
+			%对数据中进行简要分析，选择出主模型，结合文献给出主模型的合理性
+			\subsection{主模型建立}
+			%用数学公式表达模型
+			%指出这个模型解决了什么问题
+			\subsection{主模型求解}
+			%给出模型结果，说明求解过程采用什么算法
+			%求解的参数如何进行优化
+			\subsection{误差分析与稳健性检验}
+			%说明误差结构来源
+			%对参数进行稳健性分析
+			\subsection{第一问结论}
+			%总结上文，给出那些及结论可以保留并参与后续建模。你哪些结论因为什么原因应当慎重考虑
+			%注意正面回应题目的要求，如果题目要求形成可以参考的表格或者分界点应明确用表格给出（短表直接写，长表放到appendix_data目录）
+			
+			\section{结论}
+			%文章主结论，最后正面回应题目要求
+		
+		%模型评价与推广	
+			\section{模型推广与评价}
+			\subsection{模型优点}
+			%正确处理了什么问题，有什么创新行性
+			\subsection{模型局限}
+			%在什么地方上，由于什么原因，没有达到
+			\subsection{模型推广}
+			%可以参考什么，哪些应该慎重，
+		}
+	\end{spacing}
+	
+	\section{AI使用声明}
+	
+	% 参考文献部分
+	\section{参考文献}	
+	\begin{spacing}{1.25} % 1.25 倍行距
+		\zihao{5}             % 五号字
+	\begin{enumerate}[label={[\arabic*]}, leftmargin=2em, labelwidth=1.5em, labelsep=0.5em, itemsep=0pt, parsep=0pt, partopsep=0pt, topsep=0pt]		
+		\item 						
+	\end{enumerate}
+	\end{spacing}
+	
+	%附录部分
+	%创建appendix文档 
+	
+	%附录A 目录
+	%创建appendix_catelog 附录部分目录
+	
+	%附录B 直接引用数据
+	%appendix_data_citation
+	%论文直接引用的重要数据，比如预实验设计和结果
+	
+	%附录C 重要长表数据
+	%appendix_data_adition
+	%部分划分结果，比如数据清洗报告等重要但是没有直接引用的数据
+	
+	%附录D 支撑材料目录
+	%appendix_contents 支撑文件目录，给出文件名和用途
+	
+	%附录E  代码文件
+	%appendix_code     代码文件
+\end{document}
+
